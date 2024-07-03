@@ -1,26 +1,31 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { Buffer } from 'buffer'
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 export default defineConfig({
+  base: '/archetype-vite-react-dc/', // Set the base path to your repository name
   resolve: {
     alias: {
-      crypto: 'crypto-browserify',
-      stream: 'stream-browserify',
-      assert: 'assert',
-      http: 'stream-http',
-      https: 'https-browserify',
-      os: 'os-browserify',
-      url: 'url',
-      util: 'util/', // Add an alias for the "util" module. For reasons I don't understand, without the '/' after, this throws errors
+      util: 'util/', // Ensure this alias is correctly set
     },
   },
-  plugins: [react()],
+  plugins: [
+    react(),
+    nodePolyfills({
+      // Customize your polyfills here
+      exclude: [],
+      globals: {
+        Buffer: true, // This ensures Buffer is polyfilled
+        global: true,
+        process: true,
+      },
+      protocolImports: true,
+    }),
+  ],
   server: {
     port: 3000,
   },
   define: {
     'process.env': {},
-    Buffer: [Buffer],
   },
 })

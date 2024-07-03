@@ -24,7 +24,8 @@
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
     "url": "^0.11.3",
-    "util": "^0.12.5"
+    "util": "^0.12.5",
+    "vite-plugin-node-polyfills": "^0.22.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
