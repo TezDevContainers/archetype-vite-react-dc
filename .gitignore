@@ -1,0 +1,4 @@
+.aider*
+!.aiderignore
+node_modules
+

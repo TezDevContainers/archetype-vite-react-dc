@@ -1,0 +1,14 @@
+{
+  "name": "archetype-vite-react-dc",
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/python:1": {}
+    },
+  "postCreateCommand": "chmod +x .devcontainer/postCreate.sh && .devcontainer/postCreate.sh",
+  "postStartCommand": "chmod +x .devcontainer/postStart.sh && .devcontainer/postStart.sh",
+
+  "forwardPorts": [3000, 20000]
+}

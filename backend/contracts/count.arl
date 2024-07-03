@@ -1,0 +1,12 @@
+archetype count(start : nat)
+
+variable count : nat = start
+
+entry increment() {
+    count+= 1;
+    emit<incremented>({count})
+}
+
+event incremented {
+  newcount: nat;
+}

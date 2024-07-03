@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@completium/completium-cli": "^1.0.23",
+    "@completium/experiment-ts": "^1.0.3",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.14.2",
+    "mocha": "^10.4.0",
+    "ts-mocha": "^10.0.0"
+  },
+  "scripts": {
+    "start-sandbox": "docker run --rm --name my-sandbox --detach -p 20000:20000 -e block_time=3 oxheadalpha/flextesa:latest nairobibox start",
+    "bind": "npx completium-cli generate binding-ts * --input-path ./contracts --output-path ./tests/bindings",
+    "test": "npx ts-mocha 'tests/**/*.ts' --timeout 0 --bail",
+    "dapp-bind": "npx completium-cli generate binding-dapp-ts * --input-path ./contracts --output-path ../frontend/contract-bindings",
+    "bind-test": "npm run bind && npm test",
+    "ghost_deploy_script": "./scripts/deploy_and_bind.sh"
+  }
+}

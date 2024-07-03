@@ -1,0 +1,21 @@
+{
+  "name": "archetypeTemplate",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "devDependencies": {
+    "@completium/dapp-ts": "^0.1.11",
+    "@taquito/michel-codec": "^20.0.0",
+    "@taquito/michelson-encoder": "^20.0.0",
+    "@taquito/signer": "^20.0.0",
+    "@taquito/taquito": "^20.0.0",
+    "@taquito/utils": "^20.0.0",
+    "prettier": "^3.3.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@completium/archetype-ts-types": "^0.1.12"
+  }
+}
