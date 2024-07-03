@@ -28,8 +28,8 @@ const WalletProvider = ({ children }: { children: ReactNode }) => {
         import.meta.env.VITE_TEZOS_RPC ?? "localhost:20000"
       )
       const beacon = new BeaconWallet({
-        name: "BattleArena",
-        preferredNetwork: (import.meta.env.VITE_TEZOS_RPC ||
+        name: "Count",
+        preferredNetwork: (import.meta.env.VITE_TEZOS_NETWORK_NAME ||
           "sandbox") as NetworkType,
         colorMode: ColorMode.DARK,
       })
