@@ -19,8 +19,8 @@
     "test-only": "npx ts-mocha 'tests/**/*.ts' --timeout 0 --bail",
     "dapp-bind": "npx completium-cli generate binding-dapp-ts * --input-path ./contracts --output-path ../frontend/contract-bindings",
     "test": "yarn run test-bind && yarn run test-only",
-    "s:update": "./scripts/deploy_and_update_vite_env.sh sandbox && yarn dapp-bind",
-    "g:update": "./scripts/deploy_and_update_vite_env.sh ghost && yarn dapp-bind",
-    "main:update": "./scripts/deploy_and_update_vite_env.sh main && yarn dapp-bind"
+    "s:deploy": "./scripts/deploy_and_update_vite_env.sh sandbox && yarn dapp-bind",
+    "g:deploy": "./scripts/deploy_and_update_vite_env.sh ghost && yarn dapp-bind",
+    "main:deploy": "./scripts/deploy_and_update_vite_env.sh main && yarn dapp-bind"
   }
 }
