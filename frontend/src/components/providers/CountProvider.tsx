@@ -44,7 +44,7 @@ import { CountContext } from './CountContext'
           setIncrementInProgress(false)
       })
       await run_listener({
-        endpoint: import.meta.env.VITE_PUBLIC_TEZOS_RPC,
+        endpoint: import.meta.env.VITE_TEZOS_RPC,
         // endpoint: endpoint,
         verbose: false,
         horizon: 0
@@ -64,7 +64,7 @@ import { CountContext } from './CountContext'
             return
         }
         console.log("initialising Count contract")
-        setCountContract(new Count(import.meta.env.VITE_GHOST_CONTRACT_ADDRESS))
+        setCountContract(new Count(import.meta.env.VITE_CONTRACT_ADDRESS))
         }, [Tezos])
 
     //This use effect checks we have access to a count contract. If so,

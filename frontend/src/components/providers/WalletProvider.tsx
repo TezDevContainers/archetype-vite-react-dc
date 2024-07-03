@@ -25,11 +25,11 @@ const WalletProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     if (!Tezos) {
       const Tezos = new TezosToolkit(
-        import.meta.env.VITE_PUBLIC_TEZOS_RPC ?? "localhost:20000"
+        import.meta.env.VITE_TEZOS_RPC ?? "localhost:20000"
       )
       const beacon = new BeaconWallet({
         name: "BattleArena",
-        preferredNetwork: (import.meta.env.VITE_PUBLIC_NETWORK ||
+        preferredNetwork: (import.meta.env.VITE_TEZOS_RPC ||
           "sandbox") as NetworkType,
         colorMode: ColorMode.DARK,
       })
@@ -45,8 +45,8 @@ const WalletProvider = ({ children }: { children: ReactNode }) => {
     try {
       await wallet?.requestPermissions({
         network: {
-          type: (import.meta.env.VITE_PUBLIC_NETWORK ?? "ghostnet") as NetworkType,
-          rpcUrl: import.meta.env.VITE_PUBLIC_TEZOS_RPC,
+          type: (import.meta.env.VITE_TEZOS_NETWORK_NAME ?? "sandbox") as NetworkType,
+          rpcUrl: import.meta.env.VITE_TEZOS_RPC,
         },
       })
       const active = await wallet?.client.getActiveAccount()

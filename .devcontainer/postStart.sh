@@ -7,4 +7,6 @@ echo 'alias ccli="npx completium-cli"' >> ~/.bashrc
 source ~/.bashrc
 
 echo "Setting executable permissions"
-chmod +x /workspaces/pyTezosDC/backend/scripts/deploy_and_bind.sh
+chmod +x /workspaces/archetype-vite-react-dc/backend/scripts/deploy_and_update_vite_env.sh
+
+echo "Done"
