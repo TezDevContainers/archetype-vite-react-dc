@@ -1,5 +1,7 @@
 This repo provides a complete developer workflow for a small tezos project or a starting point for a more complex development flow.
 
+The sample dapp is deployed to github pages: [tezdevcontainers.github.io/archetype-vite-react-dc/](https://tezdevcontainers.github.io/archetype-vite-react-dc/)
+
 The repo is a yarn monorepo divided into two workspaces, frontend and backend.
 
 Overview of the tools and the development flow:
@@ -20,11 +22,11 @@ Overview of the tools and the development flow:
 
 ##  Devcontainers
 
-This repo is designed to be used as a devcontainer.
+This repo should be loaded as a devcontainer. Devcontainers are compatible with VScode and many other other IDEs.
 
-You can run it straight from a repo using codespaces, or you can run it locally. I have tested it on both an m1 mac and an intel chip. For running the container locally, I recommend using the "Clone Repository in Container Volume" option from the command palette when starting a devcontainer, otherwise file access can be laggy.
+You can run it straight from a repo using codespaces, or you can run it locally. I have tested it on both an m1 mac and an intel chip. For running the container locally, I recommend using the "Clone Repository in Container Volume" option from the vscode command palette when starting a devcontainer, otherwise file access can be laggy.
 
-Most of the setup is handled by the devcontainer, but you do need to run a few commands yourself after creation. See the next section.
+Most of the setup is handled by the devcontainer and associated scripts, but you do need to run a few commands yourself after creation...
 
 ## Finalising the setup
 A few final setup commands that must be run by you, dear reader, in an interactive shell after the devcontainer has been built.

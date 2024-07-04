@@ -15,7 +15,7 @@ import { CountContext } from './CountContext'
     
     const fetchCount = useCallback(
       async () => {
-        if (!countContract || !account || !account.address) {
+        if (!countContract) {
           return
         }
         setCountLoading(true)
@@ -30,7 +30,7 @@ import { CountContext } from './CountContext'
         }
       return
       },
-      [countContract, account]
+      [countContract]
     ) 
 
 
