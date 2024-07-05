@@ -6,6 +6,21 @@ This repo provides a complete developer workflow for a small tezos decentralised
 
 The sample dapp is deployed to github pages: [tezdevcontainers.github.io/archetype-vite-react-dc/](https://tezdevcontainers.github.io/archetype-vite-react-dc/)
 
+## Finalising the setup
+A few final setup commands that must be run by you, dear reader, in an interactive shell after the devcontainer has been built.
+
+```
+//ccli is a recommended alias for convenience
+echo 'alias ccli="npx completium-cli"' >> ~/.bashrc
+source ~/.bashrc
+// Downgrading to node version 16 is necessary for compatibility with flextesa sandbox (as of July 3 2024)
+nvm install 16
+nvm use 16
+//Completium initialisation
+ccli init
+ccli mockup init
+```
+
 ## Tech Stack
 
 | **Stack**                       | **Tech**                                                                                                     |
@@ -55,20 +70,7 @@ Most of the setup is handled by the devcontainer and associated scripts, but you
 
 If you are VERY new to practical development, VSCode, or devcontainers, Have a look at this [step-by-step guide](https://github.com/TezDevContainers/smartpy-dc) to getting a devcontainer running in your own repo on codespaces or locally on your own machine for a smartpy devcontainer. The instructions should be identical, just for a different repo.  
 
-## Finalising the setup
-A few final setup commands that must be run by you, dear reader, in an interactive shell after the devcontainer has been built.
 
-```
-//ccli is a recommended alias for convenience
-echo 'alias ccli="npx completium-cli"' >> ~/.bashrc
-source ~/.bashrc
-// Downgrading to node version 16 is necessary for compatibility with flextesa sandbox (as of July 3 2024)
-nvm install 16
-nvm use 16
-//Completium initialisation
-ccli init
-ccli mockup init
-```
 
 ## Running the dapp locally with a sandbox
 
