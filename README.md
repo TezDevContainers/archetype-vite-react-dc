@@ -1,10 +1,24 @@
+
+
 This repo provides a complete developer workflow for a small tezos project or a starting point for a more complex development flow.
 
 The sample dapp is deployed to github pages: [tezdevcontainers.github.io/archetype-vite-react-dc/](https://tezdevcontainers.github.io/archetype-vite-react-dc/)
 
+## Tech Stack
+
+**Contract:** Archetype
+**Contract Unit Testing:** ts-mocha + Completium
+**Frontend UI:** React + Typescript
+**Contract Dev Deployment"** Flextesa sandbox and/or ghostnet deployment via completium
+**Contract-Frontend integration:** Completium typescript bindings + custom scripts
+**Frontend Build and Deployment:** Vite
+**Frontend Dev Deployment:** Vite
+**Frontend Unit Testing:** Not implemented. Jest? A PR including a basic frontend test that mocks a user connecting and making an entrypoint call would be welcomed.
+**Deployment:** Github Pages + Github actions
+
 The repo is a yarn monorepo divided into two workspaces, frontend and backend.
 
-Overview of the tools and the development flow:
+Overview of development flow:
 
 **Backend:**
 - Write your contract in archetype in the contracts file (example contract is count.arl)
@@ -27,6 +41,8 @@ This repo should be loaded as a devcontainer. Devcontainers are compatible with 
 You can run it straight from a repo using codespaces, or you can run it locally. I have tested it on both an m1 mac and an intel chip. For running the container locally, I recommend using the "Clone Repository in Container Volume" option from the vscode command palette when starting a devcontainer, otherwise file access can be laggy.
 
 Most of the setup is handled by the devcontainer and associated scripts, but you do need to run a few commands yourself after creation...
+
+If you are VERY new to practical development, VSCode, or devcontainers, Have a look at this [step-by-step guide](https://github.com/TezDevContainers/smartpy-dc) to getting a devcontainer running in your own repo on codespaces or locally on your own machine for a smartpy devcontainer. The instructions should be identical, just for a different repo.  
 
 ## Finalising the setup
 A few final setup commands that must be run by you, dear reader, in an interactive shell after the devcontainer has been built.
