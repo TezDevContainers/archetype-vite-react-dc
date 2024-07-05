@@ -1,38 +1,49 @@
-# Archetype mini dApp
+# Archetype tezos mini dApp
 
-This repo provides a complete developer workflow for a small tezos project or a starting point for a more complex development flow.
+If you want to build a small working blockchain project fast, this is the repo for you.
+
+This repo provides a complete developer workflow for a small tezos decentralised app (dApp)
 
 The sample dapp is deployed to github pages: [tezdevcontainers.github.io/archetype-vite-react-dc/](https://tezdevcontainers.github.io/archetype-vite-react-dc/)
 
 ## Tech Stack
 
-**Contract:** Archetype
-**Contract Unit Testing:** ts-mocha + Completium
-**Frontend UI:** React + Typescript
-**Contract Dev Deployment"** Flextesa sandbox and/or ghostnet deployment via completium
-**Contract-Frontend integration:** Completium typescript bindings + custom scripts
-**Frontend Build and Deployment:** Vite
-**Frontend Dev Deployment:** Vite
-**Frontend Unit Testing:** Not implemented. Jest? A PR including a basic frontend test that mocks a user connecting and making an entrypoint call would be welcomed.
-**Deployment:** Github Pages + Github actions
+| **Stack**                       | **Tech**                                                                                                     |
+|---------------------------------|-------------------------------------------------------------------------------------------------------------|
+| **Blockchain**                  | [Tezos](https://tezos.com/)                                                                                  |
+| **Contract**                    | [Archetype](https://archetype-lang.org/)                                                                     |
+| **Contract Unit Testing**       | ts-mocha + [Completium](https://completium.com/)                                                             |
+| **Wallet Integration**          | [Beacon](https://docs.walletbeacon.io/supported-wallets)                                                     |
+| **Frontend UI**                 | [React](https://react.dev/learn) + Typescript                                                                |
+| **Contract Dev Deployment**     | [Flextesa](https://claudebarde.medium.com/flextesa-the-swiss-army-knife-of-development-on-tezos-f2783fad966e) sandbox and/or ghostnet deployment via [Completium](https://completium.com/) |
+| **Contract-Frontend Integration** | [Completium](https://completium.com/) typescript bindings + custom scripts                                  |
+| **Frontend Dev Server**         | [Vite](https://vitejs.dev/)                                                                                  |
+| **Frontend Unit Testing**       | Not implemented                                                                                              |
+| **Serverless Deployment**       | [Vite](https://vitejs.dev/) + Github Pages                                                                   |
 
-The repo is a yarn monorepo divided into two workspaces, frontend and backend.
+- Vite Polyfill issues handled with vite-plugin-node-polyfills
+- Frontend State management uses react hooks e.g useContext and providers
+- Sandbox compatibility issues handled with node version manager (nvm) 
+ 
+Regarding the frontend unit testing, A PR including a basic frontend test that mocks a user connecting and making an entrypoint call would be welcomed. I'm thinking Jest but I haven't looked into the tools for unit tests related to mocking contract calls and on chain interactions.
 
-Overview of development flow:
+## Development flow
 
-**Backend:**
-- Write your contract in archetype in the contracts file (example contract is count.arl)
-- Test your contract on a mockup chain using completium and ts-mocha
-- Deploy your contract to a flextesa sandbox or ghostnet with completium. A script provided by this repo integrates your deployed contract with the frontend by updating relevant vite environment variables
+The project is a yarn monorepo divided into two workspaces, frontend and backend.
 
-**Frontend:**
-- Polyfill issues handled with vite-plugin-node-polyfills
-- React app connects to tezos chain with beacon wallet
-- React dapp integration with contract via the completium bindings
-- State management with react hooks e.g useContext and providers
-- not implemented - front end testing framework (eg jest)
-- Build and preview with vite
-- Continuous integration / automated deployment with github actions triggering deployment to github pages on push 
+**Backend Workspace:**
+- Write your contract in archetype in the contracts file (the example contract is count.arl)
+- Test your contract on a mockup chain using completium and ts-mocha with `yarn test` in the backend
+- Start sandbox if using with `yarn s:start`
+- Deploy your contract to a flextesa sandbox or ghostnet with completium. with `yarn s:deploy`. A script provided by this repo integrates your deployed contract with the frontend by updating relevant vite environment variables
+
+**Frontend Workspace:**
+- Run dApp locally with `yarn dev`
+- Connect a wallet in your browswer to the sandbox or ghostnet. I found [temple wallet](https://templewallet.com/download) to be good for development as it is possible to turn off constant requests for your password. If using sandbox, get private key for user account (from backend workspace) with `yarn s:show-keys`
+- Preview build with `yarn build && yarn preview`
+
+**Deployment:**
+- If you update your repo github pages settings to use github actions for deployment, the deploy.yaml script in the .github folder will automatically deploy your page to the github-page for that repo with every commit. Feel free to delete this file or change your repo settings to prevent this action. 
 
 ##  Devcontainers
 
