@@ -1,4 +1,4 @@
-
+# Archetype mini dApp
 
 This repo provides a complete developer workflow for a small tezos project or a starting point for a more complex development flow.
 
